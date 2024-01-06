@@ -1,0 +1,19 @@
+public class LeetCode {
+    public static void main(String[] args) {
+        int[] nums={1,2,3,1};
+        boolean res=containsDuplicate(nums);
+        System.out.println(res);
+
+    }
+    public static boolean containsDuplicate(int[] nums){
+        //Using a HashSet because a set does not allow duplicate element.
+        HashSet<Integer> set=new HashSet<>();
+        for(int i:nums){
+            if(set.contains(i)) return true;
+            else set.add(i);
+        }
+        return false;
+    }
+}
+T(C):O(n)
+S(C):O(n)
