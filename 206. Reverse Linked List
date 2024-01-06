@@ -1,0 +1,30 @@
+public class LeetCode {
+
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        ListNode current = head;
+        for (int i = 2; i <= 5; i++) {
+            current.next = new ListNode(i);
+            current = current.next;
+        }
+        ListNode res = reversal(head);
+        while (res != null) {
+            System.out.print(res.val + " ");
+            res = res.next;
+        }
+    }
+
+    public static ListNode reversal(ListNode head){
+        if(head==null) return head;
+        ListNode prev=null;
+        while(head!=null){
+            ListNode temp=head.next;
+            head.next=prev;
+            prev=head;
+            head=temp;
+        }
+        return prev;
+    }
+}
+//T(C):O(n)
+//S(C):O(1)
