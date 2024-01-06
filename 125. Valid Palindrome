@@ -1,0 +1,33 @@
+public class LeetCode {
+
+    public static void main(String[] args) {
+        String s = "A man, a plan, a canal: Panama";
+        boolean res=isPalindrome(s);
+        System.out.println(res);
+
+    }
+    public static boolean isPalindrome(String s){
+        if(s.isEmpty()) return true;
+        if(s==null) return false;
+        s=s.toLowerCase();
+        int start=0;
+        int end=s.length()-1;
+        while(start<=end){
+            while(!Character.isLetterOrDigit(s.charAt(start))){//Chech whether the element is space or punctuation 
+                start++;
+                if(start==end) return true;//if length equals to 0;
+            }
+            while(!Character.isLetterOrDigit(s.charAt(end))){
+                end--;
+            }
+            if(s.charAt(start)==s.charAt(end)){
+                start++;
+                end--;
+            }
+            else return false;
+        }
+        return true;
+    }
+}
+//T(C):O(n)
+//S(C):O(1)
