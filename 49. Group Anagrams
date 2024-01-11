@@ -1,0 +1,17 @@
+class Solution{
+    public List<List<String>> groupAnagrams(String[] strs){
+        HashMap<String, List<String>> map =new HashMap<>();
+        for(String i:strs){
+            char[] s=i.toCharArray();
+            Arrays.sort(s);
+            String k=String.valueOf(s);
+            if(!map.containsKey(k)){
+                map.put(k,new ArrayList<>());
+            }
+            map.get(k).add(i);
+        }
+   return new ArrayList<>(map.values());
+    }
+}
+T(C):O(n * k log k);
+S(C): O(n * k);
