@@ -1,0 +1,21 @@
+class Solution {
+    public int rob(int[] nums) {
+        if(nums.length==1) return nums[0];
+        return Math.max(dp(nums,0, nums.length-2), dp(nums,1,nums.length-1));
+      
+    }
+    private int dp(int[]nums, int low, int high){
+        int first=0;
+        int second=0;
+        for(int i=low;i<=high;i++){
+            int f=first;
+            int s=second;
+            first=s+nums[i];
+            second=Math.max(s,f);
+        }
+        return Math.max(first,second);
+    }
+}
+
+T(C):O(n);
+S(C):O(1)
